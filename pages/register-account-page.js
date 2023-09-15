@@ -5,10 +5,10 @@ exports.RegisterAccountPage = class RegisterAccountPage {
     this.lastNameInput = page.getByPlaceholder('Last Name');
     this.emailInput = page.getByPlaceholder('E-mail');
     this.telephoneInput = page.getByPlaceholder('Telephone');
-    this.passwordInput = page.getByPlaceholder('Password');
-    this.passwordConfirmInput = page.getByPlaceholder('Password Confirm');
+    this.passwordInput = page.locator('#input-password');
+    this.passwordConfirmInput = page.locator('#input-confirm');
     this.subscribeNewsletterSelect = page.getByPlaceholder('radio');
-    this.privacyPolicyCheckbox = page.getByRole('checkbox', { name: 'Agree' });
+    this.privacyPolicyCheckbox = page.locator('.pull-right');
     this.continueButton = page.getByRole('submit', { value: 'Continue' });
   }
 
