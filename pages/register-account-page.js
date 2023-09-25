@@ -8,8 +8,10 @@ exports.RegisterAccountPage = class RegisterAccountPage {
     this.passwordInput = page.locator('#input-password');
     this.passwordConfirmInput = page.locator('#input-confirm');
     this.subscribeNewsletterSelect = page.getByPlaceholder('radio');
-    this.privacyPolicyCheckbox = page.locator('.pull-right');
-    this.continueButton = page.getByRole('submit', { value: 'Continue' });
+    this.privacyPolicyCheckbox = page.getByRole('checkbox');
+    this.continueButton = page
+      .locator('.buttons')
+      .getByRole('button', { value: 'Continue' });
   }
 
   async fillYourPersonalDetails(firstName, lastName, email, telephone) {
