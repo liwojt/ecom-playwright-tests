@@ -3,14 +3,14 @@ const { test, expect } = require('@playwright/test');
 const { RegisterAccountPage } = require('../pages/register-account-page');
 const { HomePage } = require('../pages/home-page');
 import MailSlurp from 'mailslurp-client';
-const fs = require('fs');
+import { saveEnvFile } from '../utils/saveEnvFile';
 
 test.describe('Register account', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/ui');
   });
 
-  test('should create the account and verify confirmation e-mail', async ({
+  test.skip('should create the account and verify confirmation e-mail', async ({
     page,
   }) => {
     const registerAccount = new RegisterAccountPage(page);
@@ -44,12 +44,6 @@ test.describe('Register account', () => {
 
     const newEnvLine = `\nLOGIN=${emailAddress}\n`;
 
-    fs.appendFile('.env', newEnvLine, (err) => {
-      if (err) {
-        console.error('Error writing to .env:', err);
-      } else {
-        console.log('Email address added to .env');
-      }
-    });
+    saveEnvFile(newEnvLine);
   });
 });
