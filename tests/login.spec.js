@@ -13,10 +13,7 @@ test.describe('Login', () => {
 
     await home.myAccountLink.click();
     await home.loginLink.click();
-    await login.login(
-      '56df8591-2ff0-4c1a-89ca-ffd110a93ee1@mailslurp.com',
-      'test-password'
-    );
+    await login.login(process.env.LOGIN, process.env.PASSWORD);
     await expect(page.locator('#content')).toContainText('My Account');
   });
 
