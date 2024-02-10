@@ -5,7 +5,7 @@ const { HomePage } = require('../pages/home.page');
 import MailSlurp from 'mailslurp-client';
 import { saveEnvFile } from '../utils/saveEnvFile';
 
-test.describe('Register account', () => {
+test.describe.serial('Register account', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/ui');
   });
