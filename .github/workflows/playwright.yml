@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.41.1-jammy
-    env:
-      PASSWORD: ${{vars.PASSWORD}}
-      API_KEY: ${{vars.API_KEY}}
-      NAME: ${{vars.NAME}}
-      SURNAME: ${{vars.SURNAME}}
-      TELE_NUMBER: ${{vars.TELE_NUMBER}}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
