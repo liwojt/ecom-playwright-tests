@@ -18,7 +18,7 @@ jobs:
       - name: Change .env file
         run: |
           cp .env.example .env
-          echo "Today is ${{env.API_KEY}}!"
+          echo "Today is ${{vars.API_KEY}}!"
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
