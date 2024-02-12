@@ -10,7 +10,7 @@ test.describe('Register account', () => {
     await page.goto('/ui');
   });
 
-  test.skip('should create the account and verify confirmation e-mail', async ({
+  test('should create the account and verify confirmation e-mail', async ({
     page,
   }) => {
     const registerAccount = new RegisterAccountPage(page);
