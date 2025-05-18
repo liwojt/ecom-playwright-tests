@@ -8,10 +8,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.37.1"
-  },
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "mailslurp-client": "^15.17.2"
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.18",
+    "dotenv": "^16.5.0",
+    "mailslurp-client": "^15.22.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
