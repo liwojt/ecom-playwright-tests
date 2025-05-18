@@ -1,6 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { RegisterAccountPage } from '../pages/register-account.page';
 import { HomePage } from '../pages/home.page';
+import { RegisterAccountPage } from '../pages/register-account.page';
 import {
   USER_EMAIL_ADDRESS,
   USER_FIRST_NAME,
@@ -8,6 +7,7 @@ import {
   USER_PASSWORD,
   USER_PHONE,
 } from '../utils/env.config';
+import { expect, test } from '@playwright/test';
 
 test.describe('Register account', () => {
   test.beforeEach(async ({ page }) => {

@@ -1,5 +1,5 @@
-import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base.page';
+import { Locator, Page } from '@playwright/test';
 
 export class RegisterAccountPage extends BasePage {
   firstNameInput: Locator;
@@ -31,27 +31,27 @@ export class RegisterAccountPage extends BasePage {
     lastName: string,
     email: string,
     telephone: string,
-  ) {
+  ): Promise<void> {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.emailInput.fill(email);
     await this.telephoneInput.fill(telephone);
   }
 
-  async fillYourPassword(password: string) {
+  async fillYourPassword(password: string): Promise<void> {
     await this.passwordInput.fill(password);
     await this.passwordConfirmInput.fill(password);
   }
 
-  async subscribeNewsletter() {
+  async subscribeNewsletter(): Promise<void> {
     await this.subscribeNewsletterSelect.filter({ hasText: 'Yes' }).check();
   }
 
-  async checkAgreement() {
+  async checkAgreement(): Promise<void> {
     await this.privacyPolicyCheckbox.check();
   }
 
-  async clickContinueButton() {
+  async clickContinueButton(): Promise<void> {
     await this.continueButton.click();
   }
 }

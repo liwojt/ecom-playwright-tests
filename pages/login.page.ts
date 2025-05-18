@@ -1,5 +1,5 @@
-import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base.page';
+import { Locator, Page } from '@playwright/test';
 
 export class LoginPage extends BasePage {
   emailInput: Locator;
@@ -17,13 +17,13 @@ export class LoginPage extends BasePage {
     this.warningInfo = page.getByText(' Warning:');
   }
 
-  async login(login: string, password: string) {
+  async login(login: string, password: string): Promise<void> {
     await this.emailInput.fill(login);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }
 
-  async resetPassword() {
+  async resetPassword(): Promise<void> {
     await this.forgottenPasswordButton.click();
   }
 }

@@ -1,7 +1,7 @@
-import test, { expect } from '@playwright/test';
 import { HomePage } from '../pages/home.page';
 import { LoginPage } from '../pages/login.page';
 import { USER_EMAIL_ADDRESS, USER_PASSWORD } from '../utils/env.config';
+import test, { expect } from '@playwright/test';
 
 test.describe('Login', () => {
   test.beforeEach(async ({ page }) => {

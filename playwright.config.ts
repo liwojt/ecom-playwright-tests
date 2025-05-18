@@ -1,5 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
 import { BASE_URL } from './utils/env.config';
+import { defineConfig, devices } from '@playwright/test';
 
 module.exports = defineConfig({
   testDir: './tests',
