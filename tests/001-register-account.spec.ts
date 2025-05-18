@@ -1,9 +1,15 @@
-// @ts-check
 import { test, expect } from '@playwright/test';
 import { RegisterAccountPage } from '../pages/register-account.page';
 import { HomePage } from '../pages/home.page';
+import {
+  USER_EMAIL_ADDRESS,
+  USER_FIRST_NAME,
+  USER_LAST_NAME,
+  USER_PASSWORD,
+  USER_PHONE,
+} from '../utils/env.config';
 
-test.describe.serial('Register account', () => {
+test.describe('Register account', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/ui');
   });
@@ -13,16 +19,19 @@ test.describe.serial('Register account', () => {
   }) => {
     const registerAccount = new RegisterAccountPage(page);
     const home = new HomePage(page);
-    const emailAddress = `test-3424@example.com`;
-    const password = 'test-password';
+    const emailAddress = USER_EMAIL_ADDRESS;
+    const firstName = USER_FIRST_NAME;
+    const lastName = USER_LAST_NAME;
+    const password = USER_PASSWORD;
+    const phoneNumber = USER_PHONE;
 
     await home.myAccountLink.click();
     await home.registerLink.click();
     await registerAccount.fillYourPersonalDetails(
-      'Anaastasia',
-      'Beverly',
+      firstName,
+      lastName,
       emailAddress,
-      '3454343434'
+      phoneNumber
     );
     await registerAccount.fillYourPassword(password);
     await registerAccount.checkAgreement();

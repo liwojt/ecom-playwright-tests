@@ -1,13 +1,12 @@
-// @ts-check
-const { defineConfig, devices } = require('@playwright/test');
-const dotenv = require('dotenv');
-dotenv.config();
+import { defineConfig, devices } from '@playwright/test';
+import { BASE_URL } from './utils/env.config';
 
 module.exports = defineConfig({
   testDir: './tests',
   reporter: 'html',
+  workers: 1,
   use: {
-    baseURL: 'https://awesomeqa.com',
+    baseURL: BASE_URL,
     trace: 'retain-on-failure',
   },
   projects: [
