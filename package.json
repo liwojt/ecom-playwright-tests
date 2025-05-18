@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
     "format": "npx prettier --write .",
     "lint": "npx eslint . --max-warnings=0",
     "prepare": "husky"
