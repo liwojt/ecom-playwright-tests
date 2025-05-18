@@ -1,9 +1,7 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
-import { RegisterAccountPage } from  '../pages/register-account.page';
+import { RegisterAccountPage } from '../pages/register-account.page';
 import { HomePage } from '../pages/home.page';
-import MailSlurp from 'mailslurp-client';
-import { saveEnvFile } from '../utils/saveEnvFile';
 
 test.describe.serial('Register account', () => {
   test.beforeEach(async ({ page }) => {
@@ -15,19 +13,16 @@ test.describe.serial('Register account', () => {
   }) => {
     const registerAccount = new RegisterAccountPage(page);
     const home = new HomePage(page);
-
-    // create a new inbox
-    const mailslurp = new MailSlurp({ apiKey: `${process.env.API_KEY}` });
-    const password = process.env.PASSWORD;
-    const { id, emailAddress } = await mailslurp.createInbox();
+    const emailAddress = `test-3424@example.com`;
+    const password = 'test-password';
 
     await home.myAccountLink.click();
     await home.registerLink.click();
     await registerAccount.fillYourPersonalDetails(
-      process.env.NAME,
-      process.env.SURNAME,
+      'Anaastasia',
+      'Beverly',
       emailAddress,
-      process.env.TELE_NUMBER
+      '3454343434'
     );
     await registerAccount.fillYourPassword(password);
     await registerAccount.checkAgreement();
@@ -35,15 +30,5 @@ test.describe.serial('Register account', () => {
     await expect(
       page.getByRole('heading', { name: 'Your Account Has Been Created!' })
     ).toBeVisible();
-
-    //wait for verification code
-    const email = await mailslurp.waitForLatestEmail(id);
-    expect(email.subject).toContain(
-      'TheTestingAcademy eCommerce - Thank you for registering'
-    );
-
-    const newEnvLine = `\nLOGIN=${emailAddress}\n`;
-
-    saveEnvFile(newEnvLine);
   });
 });

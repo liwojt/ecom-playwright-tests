@@ -13,7 +13,7 @@ test.describe.serial('Login', () => {
 
     await home.myAccountLink.click();
     await home.loginLink.click();
-    await login.login(process.env.LOGIN, process.env.PASSWORD);
+    await login.login('test-3424@example.com', 'test-password');
 
     await expect(page.locator('#content')).toContainText('My Account');
   });
