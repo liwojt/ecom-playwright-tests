@@ -1,6 +1,15 @@
-exports.LoginPage = class LoginPage {
-  constructor(page) {
-    this.page = page;
+import { Locator, Page } from '@playwright/test';
+import { BasePage } from './base.page';
+
+export class LoginPage extends BasePage {
+  emailInput: Locator;
+  passwordInput: Locator;
+  loginButton: Locator;
+  forgottenPasswordButton: Locator;
+  warningInfo: Locator;
+
+  constructor(page: Page) {
+    super(page);
     this.emailInput = page.getByPlaceholder('E-Mail Address');
     this.passwordInput = page.getByPlaceholder('Password');
     this.loginButton = page.getByRole('button', { name: 'Login' });
@@ -8,7 +17,7 @@ exports.LoginPage = class LoginPage {
     this.warningInfo = page.getByText(' Warning:');
   }
 
-  async login(login, password) {
+  async login(login: string, password: string) {
     await this.emailInput.fill(login);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
@@ -17,4 +26,4 @@ exports.LoginPage = class LoginPage {
   async resetPassword() {
     await this.forgottenPasswordButton.click();
   }
-};
+}

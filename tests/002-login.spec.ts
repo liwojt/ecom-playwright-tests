@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test');
-const { HomePage } = require('../pages/home.page');
-const { LoginPage } = require('../pages/login.page');
+import test, { expect } from '@playwright/test';
+import { HomePage } from '../pages/home.page';
+import { LoginPage } from '../pages/login.page';
 
 test.describe.serial('Login', () => {
   test.beforeEach(async ({ page }) => {

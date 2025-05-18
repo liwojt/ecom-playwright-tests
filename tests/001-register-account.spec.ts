@@ -1,7 +1,7 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
-const { RegisterAccountPage } = require('../pages/register-account.page');
-const { HomePage } = require('../pages/home.page');
+import { test, expect } from '@playwright/test';
+import { RegisterAccountPage } from  '../pages/register-account.page';
+import { HomePage } from '../pages/home.page';
 import MailSlurp from 'mailslurp-client';
 import { saveEnvFile } from '../utils/saveEnvFile';
 

@@ -1,7 +1,7 @@
-const fs = require('fs');
+import * as fs from 'fs';
 
-export function saveEnvFile(file) {
-  fs.appendFile('.env', file, (err) => {
+export function saveEnvFile(file: string) {
+  fs.appendFile('.env', file, (err: NodeJS.ErrnoException | null) => {
     if (err) {
       console.error('Error writing to .env:', err);
     } else {
