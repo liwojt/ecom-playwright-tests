@@ -31,13 +31,13 @@ test.describe('Register account', () => {
       firstName,
       lastName,
       emailAddress,
-      phoneNumber
+      phoneNumber,
     );
     await registerAccount.fillYourPassword(password);
     await registerAccount.checkAgreement();
     await registerAccount.clickContinueButton();
     await expect(
-      page.getByRole('heading', { name: 'Your Account Has Been Created!' })
+      page.getByRole('heading', { name: 'Your Account Has Been Created!' }),
     ).toBeVisible();
   });
 });

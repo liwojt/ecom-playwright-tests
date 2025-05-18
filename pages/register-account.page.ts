@@ -30,7 +30,7 @@ export class RegisterAccountPage extends BasePage {
     firstName: string,
     lastName: string,
     email: string,
-    telephone: string
+    telephone: string,
   ) {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);

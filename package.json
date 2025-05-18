@@ -4,17 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "lint": "npx eslint . --max-warnings=0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.27.0",
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.18",
     "dotenv": "^16.5.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.1.0",
     "prettier": "3.5.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1"
   }
 }

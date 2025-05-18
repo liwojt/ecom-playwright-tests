@@ -12,7 +12,7 @@ function requireEnvVariable(envVariable: string): string {
 
 export const BASE_URL = requireEnvVariable('BASE_URL');
 export const USER_EMAIL_ADDRESS = `test-${Math.floor(
-  Math.random() * 10000
+  Math.random() * 10000,
 )}@example.com`;
 export const USER_PASSWORD = requireEnvVariable('USER_PASSWORD');
 export const USER_FIRST_NAME = requireEnvVariable('USER_FIRST_NAME');
