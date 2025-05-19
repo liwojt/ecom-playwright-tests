@@ -1,16 +1,16 @@
 name: Playwright Tests
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Install dependencies
@@ -20,14 +20,12 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
         env:
-          PASSWORD: ${{vars.PASSWORD}}
-          API_KEY: ${{secrets.API_KEY}}
-          NAME: ${{vars.NAME}}
-          SURNAME: ${{vars.SURNAME}}
-          TELE_NUMBER: ${{vars.TELE_NUMBER}}
-          LOGIN: ${{secrets.LOGIN}}
-      - uses: actions/upload-artifact@v3
-        if: always()
+          BASE_URL: ${{vars.BASE_URL}}
+          USER_PASSWORD: ${{secrets.USER_PASSWORD}}
+          USER_FIRST_NAME: ${{vars.USER_FIRST_NAME}}
+          USER_LAST_NAME: ${{vars.USER_LAST_NAME}}
+          USER_PHONE: ${{vars.USER_PHONE}}
+      - uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: playwright-report/
