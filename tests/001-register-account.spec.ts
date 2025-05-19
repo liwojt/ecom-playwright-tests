@@ -1,12 +1,12 @@
-import { HomePage } from '../pages/home.page';
-import { RegisterAccountPage } from '../pages/register-account.page';
+import { HomePage } from '../src/pages/home.page';
+import { RegisterAccountPage } from '../src/pages/register-account.page';
 import {
   USER_EMAIL_ADDRESS,
   USER_FIRST_NAME,
   USER_LAST_NAME,
   USER_PASSWORD,
   USER_PHONE,
-} from '../utils/env.config';
+} from '../src/utils/env.config';
 import { expect, test } from '@playwright/test';
 
 test.describe('Register account', () => {

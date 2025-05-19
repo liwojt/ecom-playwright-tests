@@ -1,4 +1,4 @@
-import { BASE_URL } from './utils/env.config';
+import { BASE_URL } from './src/utils/env.config';
 import { defineConfig, devices } from '@playwright/test';
 
 module.exports = defineConfig({

@@ -1,6 +1,6 @@
-import { HomePage } from '../pages/home.page';
-import { LoginPage } from '../pages/login.page';
-import { USER_EMAIL_ADDRESS, USER_PASSWORD } from '../utils/env.config';
+import { HomePage } from '../src/pages/home.page';
+import { LoginPage } from '../src/pages/login.page';
+import { USER_EMAIL_ADDRESS, USER_PASSWORD } from '../src/utils/env.config';
 import test, { expect } from '@playwright/test';
 
 test.describe('Login', () => {
