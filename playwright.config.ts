@@ -1,13 +1,20 @@
 import { BASE_URL } from './src/utils/env.config';
 import { defineConfig, devices } from '@playwright/test';
 
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './tests',
+  timeout: 60 * 1000,
+  expect: {
+    timeout: 10 * 1000,
+  },
+  fullyParallel: true,
+  retries: 0,
   reporter: 'html',
-  workers: 1,
+  workers: undefined,
   use: {
     baseURL: BASE_URL,
-    trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
   },
   projects: [
     {
