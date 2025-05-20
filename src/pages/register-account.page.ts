@@ -3,6 +3,7 @@ import { BasePage } from './base.page';
 import { Locator, Page } from '@playwright/test';
 
 export class RegisterAccountPage extends BasePage {
+  url = 'ui/index.php?route=account/register';
   firstNameInput: Locator;
   lastNameInput: Locator;
   emailInput: Locator;
@@ -12,19 +13,24 @@ export class RegisterAccountPage extends BasePage {
   subscribeNewsletterSelect: Locator;
   privacyPolicyCheckbox: Locator;
   continueButton: Locator;
+  headerAfterRegister: Locator;
+
   constructor(page: Page) {
     super(page);
-    this.firstNameInput = page.getByPlaceholder('First Name');
-    this.lastNameInput = page.getByPlaceholder('Last Name');
-    this.emailInput = page.getByPlaceholder('E-mail');
-    this.telephoneInput = page.getByPlaceholder('Telephone');
-    this.passwordInput = page.locator('#input-password');
-    this.passwordConfirmInput = page.locator('#input-confirm');
-    this.subscribeNewsletterSelect = page.getByPlaceholder('radio');
-    this.privacyPolicyCheckbox = page.getByRole('checkbox');
-    this.continueButton = page
+    this.firstNameInput = this.page.getByPlaceholder('First Name');
+    this.lastNameInput = this.page.getByPlaceholder('Last Name');
+    this.emailInput = this.page.getByPlaceholder('E-mail');
+    this.telephoneInput = this.page.getByPlaceholder('Telephone');
+    this.passwordInput = this.page.locator('#input-password');
+    this.passwordConfirmInput = this.page.locator('#input-confirm');
+    this.subscribeNewsletterSelect = this.page.getByPlaceholder('radio');
+    this.privacyPolicyCheckbox = this.page.getByRole('checkbox');
+    this.continueButton = this.page
       .locator('.buttons')
       .getByRole('button', { name: 'Continue' });
+    this.headerAfterRegister = this.page.getByRole('heading', {
+      name: 'Your Account Has Been Created!',
+    });
   }
 
   async fillYourPersonalDetails(
