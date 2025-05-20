@@ -2,6 +2,7 @@ import { BasePage } from './base.page';
 import { Locator, Page } from '@playwright/test';
 
 export class HomePage extends BasePage {
+  url = '/ui';
   myAccountLink: Locator;
   registerLink: Locator;
   loginLink: Locator;
