@@ -9,6 +9,7 @@ export class LoginPage extends BasePage {
   loginButton: Locator;
   forgottenPasswordButton: Locator;
   warningInfo: Locator;
+  contentSection: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -17,6 +18,7 @@ export class LoginPage extends BasePage {
     this.loginButton = page.getByRole('button', { name: 'Login' });
     this.forgottenPasswordButton = page.getByText('Forgotten Password');
     this.warningInfo = page.getByText(' Warning:');
+    this.contentSection = this.page.locator('#content');
   }
 
   async login(loginUserData: LoginUserModel): Promise<void> {

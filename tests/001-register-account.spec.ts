@@ -10,7 +10,7 @@ test.describe('Register account', () => {
     await registerAccount.navigateTo();
   });
 
-  test('should create the account', async ({}) => {
+  test('should create the account', async () => {
     const userRegisterData = generateRandomUserData();
 
     await registerAccount.fillYourPersonalDetails(userRegisterData);

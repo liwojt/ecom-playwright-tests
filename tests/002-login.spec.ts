@@ -1,35 +1,27 @@
-import { HomePage } from '../src/pages/home.page';
 import { LoginPage } from '../src/pages/login.page';
 import { userTestData } from '../src/test-data/user.data';
-import test, { expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Login', () => {
+  let login: LoginPage;
+
   test.beforeEach(async ({ page }) => {
-    await page.goto('/ui');
+    login = new LoginPage(page);
+    await login.navigateTo();
   });
 
-  test('should log into the app', async ({ page }) => {
-    const login = new LoginPage(page);
-    const home = new HomePage(page);
-    await home.myAccountLink.click();
-    await home.loginLink.click();
+  test('should log into the app', async () => {
+    const expectedHeaderAfterLogin = 'My Account';
     await login.login(userTestData);
-
-    await expect(page.locator('#content')).toContainText('My Account');
+    await expect(login.contentSection).toContainText(expectedHeaderAfterLogin);
   });
 
-  test('should not log into the app', async ({ page }) => {
-    const login = new LoginPage(page);
-    const home = new HomePage(page);
+  test('should not log into the app - incorrect credentials', async () => {
     const userLoginData = {
       userEmail: 'invalidEmail',
       userPassword: 'invalidPassword',
     };
-
-    await home.myAccountLink.click();
-    await home.loginLink.click();
     await login.login(userLoginData);
-
     await expect(login.warningInfo).toBeVisible();
   });
 });
