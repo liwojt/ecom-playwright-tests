@@ -5,3 +5,8 @@ export interface RegisterUserModel {
   userPhone: string;
   userPassword: string;
 }
+
+export interface LoginUserModel {
+  userEmail: string;
+  userPassword: string;
+}

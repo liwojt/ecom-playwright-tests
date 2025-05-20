@@ -1,3 +1,4 @@
+import { LoginUserModel } from '../models/user.model';
 import { BasePage } from './base.page';
 import { Locator, Page } from '@playwright/test';
 
@@ -17,9 +18,9 @@ export class LoginPage extends BasePage {
     this.warningInfo = page.getByText(' Warning:');
   }
 
-  async login(login: string, password: string): Promise<void> {
-    await this.emailInput.fill(login);
-    await this.passwordInput.fill(password);
+  async login(loginUserData: LoginUserModel): Promise<void> {
+    await this.emailInput.fill(loginUserData.userEmail);
+    await this.passwordInput.fill(loginUserData.userPassword);
     await this.loginButton.click();
   }
 

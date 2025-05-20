@@ -1,6 +1,6 @@
 import { HomePage } from '../src/pages/home.page';
 import { LoginPage } from '../src/pages/login.page';
-import { USER_EMAIL_ADDRESS, USER_PASSWORD } from '../src/utils/env.config';
+import { userTestData } from '../src/test-data/user.data';
 import test, { expect } from '@playwright/test';
 
 test.describe('Login', () => {
@@ -11,12 +11,9 @@ test.describe('Login', () => {
   test('should log into the app', async ({ page }) => {
     const login = new LoginPage(page);
     const home = new HomePage(page);
-    const emailAddress = USER_EMAIL_ADDRESS;
-    const password = USER_PASSWORD;
-
     await home.myAccountLink.click();
     await home.loginLink.click();
-    await login.login(emailAddress, password);
+    await login.login(userTestData);
 
     await expect(page.locator('#content')).toContainText('My Account');
   });
@@ -24,10 +21,14 @@ test.describe('Login', () => {
   test('should not log into the app', async ({ page }) => {
     const login = new LoginPage(page);
     const home = new HomePage(page);
+    const userLoginData = {
+      userEmail: 'invalidEmail',
+      userPassword: 'invalidPassword',
+    };
 
     await home.myAccountLink.click();
     await home.loginLink.click();
-    await login.login('email', 'password');
+    await login.login(userLoginData);
 
     await expect(login.warningInfo).toBeVisible();
   });
