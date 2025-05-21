@@ -1,10 +1,17 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class BasePage {
   url = '';
-  constructor(protected page: Page) {}
+  cartButton: Locator;
+  cartItemCount: Locator;
 
-  async navigateTo(): Promise<void> {
+  constructor(protected page: Page) {
+    this.cartButton = this.page.locator('#cart');
+    this.cartItemCount = this.page.locator('#cart-total');
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async navigateTo(_?: string): Promise<void> {
     await this.page.goto(this.url);
   }
 
