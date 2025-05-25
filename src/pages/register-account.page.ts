@@ -3,7 +3,7 @@ import { BasePage } from './base.page';
 import { Locator, Page } from '@playwright/test';
 
 export class RegisterAccountPage extends BasePage {
-  url = 'ui/index.php?route=account/register';
+  url = '/ui/index.php?route=account/register';
   firstNameInput: Locator;
   lastNameInput: Locator;
   emailInput: Locator;

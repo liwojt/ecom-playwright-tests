@@ -5,13 +5,13 @@ import test, { expect } from '@playwright/test';
 
 test.describe('Shopping Cart', () => {
   let shoppingCart: ShoppingCartPage;
-  let basePage: BasePage;
-  let productPage: ProductPage;
+  let base: BasePage;
+  let product: ProductPage;
 
   test.beforeEach(async ({ page }) => {
     shoppingCart = new ShoppingCartPage(page);
-    basePage = new BasePage(page);
-    productPage = new ProductPage(page);
+    base = new BasePage(page);
+    product = new ProductPage(page);
   });
 
   test('should add products to the cart when user not logged in', async () => {
@@ -22,16 +22,16 @@ test.describe('Shopping Cart', () => {
     ];
 
     for (let i = 0; i < productsToAdd.length; i++) {
-      const product = productsToAdd[i];
-      const expectedAlertText = `Success: You have added ${product.name} to your shopping cart!×`;
+      const item = productsToAdd[i];
+      const expectedAlertText = `Success: You have added ${item.name} to your shopping cart!×`;
       const expectedCartText = `${i + 1} item(s)`;
 
-      await productPage.navigateToProduct(product.id);
-      await productPage.addToCart();
+      await product.navigateToProduct(item.id);
+      await product.addToCart();
 
       // Verify the success info after adding a product to cart and amount of products in the cart
-      await expect.soft(productPage.alertSuccess).toHaveText(expectedAlertText);
-      await expect.soft(basePage.cartItemCount).toContainText(expectedCartText);
+      await expect.soft(product.alertSuccess).toHaveText(expectedAlertText);
+      await expect.soft(base.cartItemCount).toContainText(expectedCartText);
     }
 
     await shoppingCart.navigateTo();
@@ -43,8 +43,8 @@ test.describe('Shopping Cart', () => {
   });
 
   test('should remove products from the cart when user not logged in', async () => {
-    await productPage.navigateToProduct('43'); // MacBook
-    await productPage.addToCart();
+    await product.navigateToProduct('43'); // MacBook
+    await product.addToCart();
 
     await shoppingCart.navigateTo();
 
