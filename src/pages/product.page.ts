@@ -12,7 +12,7 @@ export class ProductPage extends BasePage {
     this.alertSuccess = this.page.locator('.alert-success');
   }
 
-  async navigateTo(productId: string): Promise<void> {
+  async navigateToProduct(productId: string): Promise<void> {
     await this.page.goto(`${this.url}${productId}`);
   }
 

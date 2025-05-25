@@ -10,8 +10,7 @@ export class BasePage {
     this.cartItemCount = this.page.locator('#cart-total');
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async navigateTo(_?: string): Promise<void> {
+  async navigateTo(): Promise<void> {
     await this.page.goto(this.url);
   }
 
