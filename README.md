@@ -6,7 +6,7 @@
 
 ## 🎯 Project Overview
 
-A practical end-to-end test automation project for an e-commerce website: https://awesomeqa.com/ui using Playwright and TypeScript. This project was created to practice real-world test automation skills, including page object modeling, cross-browser testing, and CI integration with GitHub Actions. 
+A practical end-to-end test automation project for an e-commerce website: https://awesomeqa.com/ui using Playwright and TypeScript. This project was created to practice real-world test automation skills, including page object modeling, cross-browser testing, and CI integration with GitHub Actions.
 
 ## 🚀 Key Features
 
@@ -43,9 +43,6 @@ ecom-playwright-tests/
 │   └── workflows/    # CI/CD Configuration
 └── playwright.config.ts
 ```
-
-
-
 
 ## 📋 Prerequisites
 
@@ -89,6 +86,4 @@ ecom-playwright-tests/
   npm run report
   ```
 
-
-
-
+![CI](https://github.com/liwojt/ecom-playwright-tests/actions/workflows/playwright.yml/badge.svg)
