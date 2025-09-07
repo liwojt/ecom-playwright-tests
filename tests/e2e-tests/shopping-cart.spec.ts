@@ -1,6 +1,6 @@
-import { BasePage } from '../src/pages/base.page';
-import { ProductPage } from '../src/pages/product.page';
-import { ShoppingCartPage } from '../src/pages/shopping-cart.page';
+import { BasePage } from '../../src/pages/base.page';
+import { ProductPage } from '../../src/pages/product.page';
+import { ShoppingCartPage } from '../../src/pages/shopping-cart.page';
 import test, { expect } from '@playwright/test';
 
 test.describe('Shopping Cart', () => {

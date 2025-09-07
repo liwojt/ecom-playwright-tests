@@ -1,5 +1,5 @@
-import { generateRandomUserData } from '../src/factories/user.factory';
-import { RegisterAccountPage } from '../src/pages/register-account.page';
+import { generateRandomUserData } from '../../src/factories/user.factory';
+import { RegisterAccountPage } from '../../src/pages/register-account.page';
 import { expect, test } from '@playwright/test';
 
 test.describe('Register account', () => {

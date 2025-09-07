@@ -1,5 +1,5 @@
-import { LoginPage } from '../src/pages/login.page';
-import { userTestData } from '../src/test-data/user.data';
+import { LoginPage } from '../../src/pages/login.page';
+import { userTestData } from '../../src/test-data/user.data';
 import { expect, test } from '@playwright/test';
 
 test.describe('Login', () => {
