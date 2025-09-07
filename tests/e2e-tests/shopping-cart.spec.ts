@@ -45,11 +45,12 @@ test.describe('Shopping Cart', () => {
   test('should remove products from the cart when user not logged in', async () => {
     await product.navigateToProduct('43'); // MacBook
     await product.addToCart();
+    await expect.soft(product.alertSuccess).toBeVisible();
 
     await shoppingCart.navigateTo();
 
     // Verify that the product is in the shopping cart
-    await expect(shoppingCart.cartTable).toContainText('MacBook');
+    await expect.soft(shoppingCart.cartTable).toContainText('MacBook');
 
     await shoppingCart.removeProductFromCart('MacBook');
 
