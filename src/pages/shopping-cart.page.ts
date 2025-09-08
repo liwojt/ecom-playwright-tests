@@ -6,12 +6,17 @@ export class ShoppingCartPage extends BasePage {
   checkoutButton: Locator;
   cartTable: Locator;
   cartContent: Locator;
+  cartAlertDanger: Locator;
 
   constructor(page: Page) {
     super(page);
-    this.checkoutButton = this.page.getByText('Checkout');
+    this.checkoutButton = this.page.getByRole('link', {
+      name: 'Checkout',
+      exact: true,
+    });
     this.cartTable = this.page.locator('.table-responsive');
     this.cartContent = this.page.locator('#content');
+    this.cartAlertDanger = this.page.locator('.alert-danger');
   }
 
   async removeProductFromCart(product: string): Promise<void> {
