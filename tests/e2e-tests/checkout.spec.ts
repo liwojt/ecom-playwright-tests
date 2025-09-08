@@ -8,7 +8,7 @@ test.describe('Checkout', () => {
   let shoppingCart: ShoppingCartPage;
   let checkout: CheckoutPage;
 
-  test.beforeAll(async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     product = new ProductPage(page);
     shoppingCart = new ShoppingCartPage(page);
     checkout = new CheckoutPage(page);
