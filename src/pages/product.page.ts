@@ -18,5 +18,6 @@ export class ProductPage extends BasePage {
 
   async addToCart(): Promise<void> {
     await this.addToCartButton.click();
+    await this.alertSuccess.waitFor({ state: 'visible', timeout: 5000 });
   }
 }
